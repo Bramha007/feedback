@@ -12,7 +12,7 @@ export const FeedbackProvider = ({ children }) => {
 
     const fetchFeedback = async () => {
         setIsLoading(true);
-        const response = await fetch("/feedbacks");
+        const response = await fetch("http://localhost:5000/feedbacks");
         const responseData = await response.json();
         setFeedbacks(responseData);
         setIsLoading(false);
@@ -25,7 +25,7 @@ export const FeedbackProvider = ({ children }) => {
     //Delete feedback
     const deleteFeedback = async (id) => {
         if (window.confirm("Are you sure you want to delete?")) {
-            await fetch(`/feedbacks/${id}`, {
+            await fetch(`http://localhost:5000/feedbacks/${id}`, {
                 method: "DELETE",
             });
             // const responseData = await response.json();
@@ -36,7 +36,7 @@ export const FeedbackProvider = ({ children }) => {
     };
 
     const addFeedback = async (newFeedback) => {
-        const response = await fetch(" /feedbacks", {
+        const response = await fetch("http://localhost:5000/feedbacks", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(newFeedback),
@@ -51,7 +51,7 @@ export const FeedbackProvider = ({ children }) => {
     };
 
     const updateFeedback = async (id, updItem) => {
-        const response = await fetch(`/feedbacks/${id}`, {
+        const response = await fetch(`http://localhost:5000/feedbacks/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(updItem),
