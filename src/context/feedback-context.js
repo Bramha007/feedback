@@ -1,7 +1,6 @@
 import { createContext, useState } from "react";
 import feedbackList from "../data/feedbackData";
 import { v4 as uuidv4 } from "uuid";
-import { FaReddit } from "react-icons/fa";
 
 const FeedbackContext = createContext();
 
