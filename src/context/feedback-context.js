@@ -13,7 +13,7 @@ export const FeedbackProvider = ({ children }) => {
     const fetchFeedback = async () => {
         setIsLoading(true);
         const response = await fetch(
-            "https://mauve-donkey-belt.cyclic.app/feedbacks"
+            "https://mauve-donkey-belt.cyclic.app/feedbacks/"
         );
         const responseData = await response.json();
         setFeedbacks(responseData);
@@ -28,7 +28,7 @@ export const FeedbackProvider = ({ children }) => {
     const deleteFeedback = async (id) => {
         if (window.confirm("Are you sure you want to delete?")) {
             await fetch(
-                `https://mauve-donkey-belt.cyclic.app/feedbacks/${id}`,
+                `https://mauve-donkey-belt.cyclic.app/feedbacks/${id}/`,
                 {
                     method: "DELETE",
                 }
@@ -42,7 +42,7 @@ export const FeedbackProvider = ({ children }) => {
 
     const addFeedback = async (newFeedback) => {
         const response = await fetch(
-            "https://mauve-donkey-belt.cyclic.app/feedbacks",
+            "https://mauve-donkey-belt.cyclic.app/feedbacks/",
             {
                 method: "POST",
                 headers: { "content-type": "application/json" },
@@ -60,7 +60,7 @@ export const FeedbackProvider = ({ children }) => {
 
     const updateFeedback = async (id, updItem) => {
         const response = await fetch(
-            `https://mauve-donkey-belt.cyclic.app/feedbacks/${id}`,
+            `https://mauve-donkey-belt.cyclic.app/feedbacks/${id}/`,
             {
                 method: "PUT",
                 headers: { "content-type": "application/json" },
